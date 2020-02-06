@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ProjektASP.Models.Person>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 style="text-align:center; font-family:Bahnschrift; font-size:10rem">PersonDatabase</h2>
+
+<p>
+    <a class="btn btn-primary" asp-action="AddOrEdit">Create New</a>
+</p>
+<form asp-action="Index">
+    <p>
+        Search Persons: <input type="text" name="SearchString" class="form-control">
+        <input class="btn btn-primary form-control"  type="submit" value="Filter" />
+    </p>
+</form>
+<div style="display:flex; flex:1; flex-wrap:wrap; justify-content:center;">
+    @foreach (var item in Model)
+    {
+        <div style="background-color: aquamarine; display:flex; justify-content:center; width:300px; height:auto; margin-right:20px; min-width:210px; margin-bottom:10px; border-radius:15px;">
+            <div>
+                <div>
+                    <h3 style="text-align:center;">Name: @item.FullName</h3>
+                </div>
+                <div style="margin-bottom:10px;">
+                    <a asp-action="AddOrEdit" asp-route-id="@item.PersonID" class="btn btn-primary m-1">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.PersonID" class="btn btn-primary m-1">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.PersonID" class="btn btn-primary m-1">Delete</a>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+    

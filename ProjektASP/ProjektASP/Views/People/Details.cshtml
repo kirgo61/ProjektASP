@@ -1,0 +1,20 @@
+﻿@model ProjektASP.Models.Person
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div style="text-align:center; background-color:aquamarine; border-radius:30px;">
+    <h1>Selected Person Info</h1>
+    <h2>FullName: @Html.DisplayFor(model => model.FullName)</h2>
+    <h2>ZipCode: @Html.DisplayFor(model => model.ZipCode)</h2>
+    <h2>Position: @Html.DisplayFor(model => model.Position)</h2>
+    <h2>City: @Html.DisplayFor(model => model.City)</h2>
+   
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="AddOrEdit" asp-route-id="@Model.PersonID">Edit</a> 
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+</div>
